@@ -1,0 +1,119 @@
+---
+import { site, url } from '../data/site.js';
+
+const { title, description = site.tagline } = Astro.props;
+const pageTitle = title ? `${title} · ${site.title}` : `${site.title} · ${site.tagline}`;
+const here = Astro.url.pathname.replace(/\/?$/, '/');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={url()}>
+          <span class="brand-name">{site.title}</span>
+          <span class="brand-tag">{site.tagline}</span>
+        </a>
+        <nav aria-label="Main">
+          {site.nav.map((item) => (
+            <a href={url(item.href)} aria-current={here === url(item.href) ? 'page' : undefined}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© {new Date().getFullYear()} {site.title}</span>
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --text: #1d1f23;
+    --muted: #5d636e;
+    --line: #e2dfd8;
+    --accent: #1f5fa8;
+    --radius: 6px;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161a;
+      --surface: #1c1f25;
+      --text: #e8e6e1;
+      --muted: #a0a6b1;
+      --line: #2e323a;
+      --accent: #7fb2ee;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.65 Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
+  }
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.25rem; }
+
+  h1, h2, h3, h4, nav, .brand, .site-footer, figcaption, .meta {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 1.25rem; letter-spacing: -0.01em; }
+  h2 { font-size: 1.3rem; line-height: 1.3; margin: 2.75rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+  h3 { font-size: 1.05rem; line-height: 1.4; margin: 0 0 0.35rem; }
+  p { margin: 0 0 1rem; }
+  a { color: var(--accent); text-underline-offset: 0.15em; }
+  a:hover { text-decoration-thickness: 2px; }
+  img { max-width: 100%; height: auto; display: block; }
+  .prose { max-width: 42rem; }
+
+  .site-header { border-bottom: 1px solid var(--line); background: var(--surface); }
+  .site-header .wrap {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 0.75rem 2rem; padding-top: 1.1rem; padding-bottom: 1.1rem;
+  }
+  .brand { text-decoration: none; color: var(--text); display: flex; flex-direction: column; }
+  .brand-name { font-weight: 700; font-size: 1.25rem; letter-spacing: -0.01em; }
+  .brand-tag { color: var(--muted); font-size: 0.85rem; }
+  nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; font-size: 0.95rem; }
+  nav a { color: var(--text); text-decoration: none; padding: 0.2rem 0; border-bottom: 2px solid transparent; }
+  nav a:hover { border-bottom-color: var(--line); }
+  nav a[aria-current='page'] { border-bottom-color: var(--accent); }
+
+  main { padding-top: 2.5rem; padding-bottom: 4rem; }
+
+  .site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
+  .site-footer .wrap {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem;
+    padding-top: 1.25rem; padding-bottom: 1.25rem;
+  }
+  .site-footer a { color: inherit; }
+
+  .shot {
+    margin: 0; border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; background: var(--surface);
+  }
+  .shot figcaption { padding: 0.5rem 0.75rem; font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--line); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.5rem; }
+</style>

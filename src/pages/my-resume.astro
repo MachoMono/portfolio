@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import { resume } from '../data/resume.js';
+---
+<Base title="My Resume">
+  <div class="resume">
+    <h1>{resume.name}</h1>
+    <p class="meta contact">
+      {resume.location} · {resume.phone} · <a href={`mailto:${resume.email}`}>{resume.email}</a>
+    </p>
+
+    <h2>Intro</h2>
+    <p>{resume.intro}</p>
+
+    <h2>Skills</h2>
+    <ul>
+      {resume.skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+
+    <h2>Work Experience</h2>
+    {resume.experience.map((job) => (
+      <section class="job">
+        <h3>{job.role} <span class="company">({job.company})</span></h3>
+        <p class="meta dates">{job.dates}</p>
+        <ul>
+          {job.points.map((point) => <li>{point}</li>)}
+        </ul>
+      </section>
+    ))}
+
+    <h2>Education</h2>
+    {resume.education.map((entry) => (
+      <p><strong>{entry.school}</strong><br />{entry.detail}</p>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .resume { max-width: 44rem; }
+  h1 { margin-bottom: 0.35rem; }
+  .contact { color: var(--muted); font-size: 0.95rem; }
+  ul { margin: 0 0 1rem; padding-left: 1.2rem; }
+  li { margin-bottom: 0.2rem; }
+  .job { margin-bottom: 1.5rem; }
+  .job h3 { margin-bottom: 0; }
+  .company { font-weight: 400; }
+  .dates { color: var(--muted); font-size: 0.875rem; margin-bottom: 0.4rem; }
+</style>

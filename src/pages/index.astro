@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../data/site.js';
+
+const pages = Object.values(import.meta.glob('./work/*.md', { eager: true }));
+const byCategory = (category) =>
+  pages
+    .filter((page) => page.frontmatter.category === category)
+    .sort((a, b) => a.frontmatter.order - b.frontmatter.order);
+
+const sections = [
+  { heading: 'UI Documentation', items: byCategory('ui') },
+  { heading: 'API Documentation', items: byCategory('api') },
+];
+---
+<Base>
+  <h1>Portfolio</h1>
+
+  <section>
+    <h2 class="first"><a href="https://developers.cvent.com/docs">Developer Portal Documentation</a></h2>
+    <div class="grid">
+      <figure class="shot">
+        <a href="https://developers.cvent.com/docs/http-post/overview">
+          <img src={url('images/cvent-http-post.png')} alt="Cvent developer portal: HTTP POST overview page" />
+        </a>
+      </figure>
+      <figure class="shot">
+        <a href="https://developers.cvent.com/docs/rest-api/guides/compliance-guide">
+          <img src={url('images/cvent-compliance-guide.png')} alt="Cvent developer portal: REST API compliance guide" />
+        </a>
+      </figure>
+    </div>
+    <p class="prose lead">
+      Currently, I collaborate with platform stakeholders to update and improve the Cvent developer portal
+      website among other responsibilities. Additionally, I migrated the original site over from a simple
+      WordPress and added structure via the <a href="https://diataxis.fr/">Diátaxis</a> Framework. Previously,
+      various internal developers maintained the site with no consistent style or tone.
+    </p>
+  </section>
+
+  {sections.map((section) => (
+    <section>
+      <h2>{section.heading}</h2>
+      <div class="grid">
+        {section.items.map((page) => (
+          <article class="card">
+            <a class="shot" href={page.url}>
+              <img src={url(`images/${page.frontmatter.card}`)} alt="" loading="lazy" />
+            </a>
+            <h3><a href={page.url}>{page.frontmatter.cardTitle ?? page.frontmatter.title}</a></h3>
+            <p>{page.frontmatter.summary}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
+</Base>
+
+<style>
+  h2.first { border-top: 0; padding-top: 0; margin-top: 0; }
+  .lead { margin-top: 1.5rem; }
+  .card .shot { display: block; margin-bottom: 0.9rem; }
+  .card .shot img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; width: 100%; }
+  .card p { margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.55; }
+  .card h3 a { color: var(--text); text-decoration: none; }
+  .card h3 a:hover { color: var(--accent); text-decoration: underline; }
+</style>
