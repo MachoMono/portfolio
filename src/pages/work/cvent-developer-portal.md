@@ -4,7 +4,7 @@ title: Cvent Developer Portal
 category: portal
 order: 1
 summary: Currently, I collaborate with platform stakeholders to update and improve the Cvent developer portal website among other responsibilities.
-card: cvent-http-post.png
+card: card-cvent.png
 liveUrl: https://developers.cvent.com/docs
 liveLabel: View the developer portal
 gallery:
@@ -12,7 +12,7 @@ gallery:
     alt: Cvent developer portal, HTTP POST Integration overview page
     address: developers.cvent.com/docs/http-post/overview
   - file: cvent-compliance-guide.png
-    alt: Cvent developer portal, REST API Compliance API Guide
+    alt: Cvent developer portal, REST API Compliance API Guide through the API Summary table
     address: developers.cvent.com/docs/rest-api/guides/compliance-guide
 ---
 

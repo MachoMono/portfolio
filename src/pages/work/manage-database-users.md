@@ -10,17 +10,14 @@ liveUrl: https://docs.cpanel.net/whm/sql-services/manage-database-users/
 liveLabel: View the Manage Database Users documentation
 gallery:
   - file: manage-database-users-1.png
-    alt: Manage Database Users documentation, overview section
+    alt: Manage Database Users documentation, top of the page with the Overview and Database users sections
     caption: Overview
   - file: manage-database-users-2.png
-    alt: Manage Database Users documentation, collapsed dropdown menus
+    alt: Manage Database Users documentation, Rename a database user section with the three dropdown menus closed
     caption: Dropdown menus
   - file: manage-database-users-3.png
-    alt: Manage Database Users documentation, expanded dropdown menus
+    alt: Manage Database Users documentation, Rename a database user section with the three dropdown menus open
     caption: Expanded menus
-  - file: manage-database-users-4.png
-    alt: Manage Database Users documentation, a further expanded dropdown menu
-    caption: Additional expanded menu
 ---
 
 I created this document in version 82 of cPanel & WHM. The [Manage Database Users](https://docs.cpanel.net/whm/sql-services/manage-database-users/) interface helps users administrate their user accounts.

@@ -9,9 +9,7 @@ liveUrl: https://api.docs.cpanel.net/specifications/whm.openapi/mysql-databases/
 liveLabel: View the API documentation
 gallery:
   - file: return-mysql-optimizations-1.png
-    alt: WHM API documentation for the get_database_optimizations function
-  - file: return-mysql-optimizations-2.png
-    alt: WHM API documentation for the get_database_optimizations function, response details
+    alt: WHM API documentation for Return MySQL database optimizations, with the request and response samples
 ---
 
 I edited the YAML file we used to create this [API documentation](https://api.docs.cpanel.net/specifications/whm.openapi/mysql-databases/db-get_database_optimizations).

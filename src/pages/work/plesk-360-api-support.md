@@ -10,7 +10,7 @@ liveUrl: https://docs.platform360.io/scp/servers/servers.html
 liveLabel: View the Platform 360 documentation
 gallery:
   - file: plesk-360-1.png
-    alt: Plesk 360 Servers documentation, page top with the Overview and Add a server sections
+    alt: Plesk 360 Servers documentation, top of the page with the Overview and Add a server sections
   - file: plesk-360-2.png
     alt: Plesk 360 Servers documentation, Add a server from Plesk using the CLI
   - file: plesk-360-3.png

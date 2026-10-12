@@ -271,6 +271,9 @@ const work = await getWork();
   .shot a { display: block; background: #fff; }
   .shot a[data-zoom] { cursor: zoom-in; }
   .shot.crop img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; }
+  /* Thumbnails show the top of a page, so fade the bottom edge instead of cutting it hard. */
+  .shot.crop a { position: relative; }
+  .shot.crop a::after { content: ''; position: absolute; inset: auto 0 0; height: 22%; background: linear-gradient(rgb(255 255 255 / 0), #fff); pointer-events: none; }
   .shot figcaption { padding: 0.55rem 0.8rem; font-size: 0.82rem; color: var(--muted); border-top: 1px solid var(--line); }
 
   .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 2rem 1.5rem; }

@@ -10,13 +10,13 @@ liveUrl: https://docs.cpanel.net/whm/sql-services/edit-sql-configuration/
 liveLabel: View the Edit SQL Configuration documentation
 gallery:
   - file: database-optimization-1.png
-    alt: Edit SQL Configuration documentation, overview section
+    alt: Edit SQL Configuration documentation, top of the page with the Overview section
     caption: Overview
   - file: database-optimization-2.png
-    alt: Edit SQL Configuration documentation, options added in version 104
+    alt: Edit SQL Configuration documentation, Database Optimization section
     caption: Added in version 104
   - file: database-optimization-3.png
-    alt: Edit SQL Configuration documentation, configuration settings
+    alt: Edit SQL Configuration documentation, first rows of the configuration settings table
     caption: Configuration settings
 ---
 
