@@ -5,7 +5,7 @@ category: api
 order: 1
 summary: I edited the YAML file we used to create this API documentation.
 card: card-return-mysql-optimizations.png
-liveUrl: https://api.docs.cpanel.net/openapi/whm/operation/get_database_optimizations/
+liveUrl: https://api.docs.cpanel.net/specifications/whm.openapi/mysql-databases/db-get_database_optimizations
 liveLabel: View the API documentation
 gallery:
   - file: return-mysql-optimizations-1.png
@@ -14,6 +14,6 @@ gallery:
     alt: WHM API documentation for the get_database_optimizations function, response details
 ---
 
-I edited the YAML file we used to create this [API documentation](https://api.docs.cpanel.net/openapi/whm/operation/get_database_optimizations/).
+I edited the YAML file we used to create this [API documentation](https://api.docs.cpanel.net/specifications/whm.openapi/mysql-databases/db-get_database_optimizations).
 
 I worked with our team's backend developer to read through the code and edit the appropriate strings needed to add help text for our users.
