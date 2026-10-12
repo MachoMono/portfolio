@@ -1,0 +1,24 @@
+---
+// A screenshot in a browser-style frame. `href` makes it a link; without one
+// the image opens larger in the lightbox defined in Base.astro.
+import { url } from '../data/site.js';
+
+const { file, alt = '', caption, address, href, crop = false, eager = false } = Astro.props;
+const src = url(`images/${file}`);
+---
+<figure class:list={['shot', { crop }]}>
+  <div class="shot-bar" aria-hidden="true">
+    <span class="dots"><i></i><i></i><i></i></span>
+    {address && <span class="address">{address}</span>}
+  </div>
+  {href ? (
+    <a href={href} tabindex={alt ? undefined : -1}>
+      <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} />
+    </a>
+  ) : (
+    <a href={src} data-zoom>
+      <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} />
+    </a>
+  )}
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

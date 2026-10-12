@@ -1,38 +1,55 @@
 ---
 import Base from './Base.astro';
-import { url } from '../data/site.js';
+import Shot from '../components/Shot.astro';
+import { groups, getWork } from '../data/site.js';
 
 const { frontmatter } = Astro.props;
-const { title, summary, liveUrl, liveLabel, gallery = [] } = frontmatter;
+const { title, summary, category, liveUrl, liveLabel, gallery = [] } = frontmatter;
+
+const section = groups.find((group) => group.id === category)?.label;
+const address = liveUrl ? liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '') : undefined;
+
+const work = await getWork();
+const index = work.findIndex((page) => page.frontmatter.title === title);
+const prev = work[index - 1];
+const next = work[index + 1];
+const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
 ---
 <Base title={title} description={summary}>
-  <p class="meta back"><a href={url()}>← Portfolio</a></p>
+  {section && <p class="eyebrow">{section}</p>}
   <h1>{title}</h1>
 
   <div class="prose">
     <slot />
-    {liveUrl && (
-      <p class="meta"><a href={liveUrl} target="_blank" rel="noreferrer noopener">{liveLabel ?? 'View the live documentation'} ↗</a></p>
-    )}
   </div>
+  {liveUrl && (
+    <p class="actions">
+      <a class="btn" href={liveUrl} target="_blank" rel="noreferrer noopener">{liveLabel ?? 'View the live documentation'} <span aria-hidden="true">↗</span></a>
+    </p>
+  )}
 
   {gallery.length > 0 && (
     <div class="gallery">
-      {gallery.map((shot) => (
-        <figure class="shot">
-          <a href={url(`images/${shot.file}`)}>
-            <img src={url(`images/${shot.file}`)} alt={shot.alt} loading="lazy" />
-          </a>
-          {shot.caption && <figcaption>{shot.caption}</figcaption>}
-        </figure>
-      ))}
+      {gallery.map((shot) => <Shot file={shot.file} alt={shot.alt} caption={shot.caption} address={address} />)}
     </div>
   )}
+
+  <nav class="pager" aria-label="More work">
+    {prev ? <a href={prev.url}><span class="mono" aria-hidden="true">←</span>{label(prev)}</a> : <span />}
+    {next ? <a class="next" href={next.url}><span class="mono" aria-hidden="true">→</span>{label(next)}</a> : <span />}
+  </nav>
 </Base>
 
 <style>
-  .back { font-size: 0.9rem; margin-bottom: 1.5rem; }
-  .back a { color: var(--muted); text-decoration: none; }
-  .back a:hover { color: var(--accent); }
-  .gallery { display: grid; gap: 1.5rem; margin-top: 2rem; }
+  .prose { margin-top: 1.5rem; }
+  .actions { margin-top: 1.5rem; }
+  .gallery { display: grid; gap: 1.75rem; margin-top: 3rem; }
+  .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 4rem; }
+  .pager a {
+    display: flex; flex-direction: column; gap: 0.2rem; padding: 0.9rem 1rem; border: 1px solid var(--line);
+    border-radius: var(--radius); color: var(--text); text-decoration: none; font-weight: 550; line-height: 1.35;
+  }
+  .pager a:hover { border-color: var(--accent); }
+  .pager .next { text-align: right; }
+  .pager .mono { color: var(--muted); font-weight: 400; }
 </style>

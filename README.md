@@ -10,13 +10,15 @@ Live: https://machomono.github.io/portfolio/
 | To change | Edit |
 | --- | --- |
 | Résumé | `src/data/resume.js` |
-| Site title, tagline, nav, email | `src/data/site.js` |
+| Site title, tagline, email, sidebar sections | `src/data/site.js` |
 | Portfolio home page | `src/pages/index.astro` |
 | A case study, or add a new one | `src/pages/work/*.md` |
 | Images | `public/images/` |
-| Colors, fonts, layout | `src/layouts/Base.astro` |
+| Colors, fonts, sidebar, layout | `src/layouts/Base.astro` |
+| Case-study page template | `src/layouts/Work.astro` |
+| Browser-style screenshot frame | `src/components/Shot.astro` |
 
-A new Markdown file in `src/pages/work/` appears on the home page automatically;
+A new Markdown file in `src/pages/work/` appears on the home page and in the sidebar automatically;
 set `category` to `ui` or `api` and `order` to position it.
 
 ## Local preview

@@ -1,7 +1,5 @@
 export const resume = {
   name: 'Caleb Larry',
-  location: 'Houston, Texas',
-  phone: '346-355-2802',
   email: 'Larrycm@gmail.com',
   intro:
     'I am a self-taught former IT professional with 7+ years of experience. In 2019 I transitioned to a career in Technical Writing after 5+ years of working in Cybersecurity. Now, I am looking to take the next step in my Technical Writing career and am eager to learn, lead and explore new technology and processes.',
