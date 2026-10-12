@@ -30,7 +30,7 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
 
   {gallery.length > 0 && (
     <div class="gallery">
-      {gallery.map((shot) => <Shot file={shot.file} alt={shot.alt} caption={shot.caption} address={address} />)}
+      {gallery.map((shot) => <Shot file={shot.file} alt={shot.alt} caption={shot.caption} address={shot.address ?? address} />)}
     </div>
   )}
 

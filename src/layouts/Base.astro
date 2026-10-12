@@ -41,8 +41,6 @@ const work = await getWork();
       </div>
 
       <nav id="site-nav" aria-label="Main">
-        <a href={url()} aria-current={current(url())}>Portfolio</a>
-
         {groups.map((group) => (
           <>
             <p class="nav-label">{group.label}</p>
@@ -234,6 +232,7 @@ const work = await getWork();
   #site-nav > a[aria-current='page'] { color: var(--accent); background: var(--accent-soft); font-weight: 550; }
   #site-nav hr { width: 100%; border: 0; border-top: 1px solid var(--line); margin: 1.1rem 0 0.75rem; }
   .nav-label { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 1.4rem 0 0.35rem; padding: 0 0.6rem; }
+  #site-nav > .nav-label:first-child { margin-top: 0; }
   .sidebar-foot {
     margin-top: auto; padding: 1.5rem 0.5rem 0; display: flex; align-items: center;
     justify-content: space-between; gap: 0.75rem;

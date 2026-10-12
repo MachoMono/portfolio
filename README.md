@@ -19,7 +19,7 @@ Live: https://machomono.github.io/portfolio/
 | Browser-style screenshot frame | `src/components/Shot.astro` |
 
 A new Markdown file in `src/pages/work/` appears on the home page and in the sidebar automatically;
-set `category` to `ui` or `api` and `order` to position it.
+set `category` to `portal`, `ui` or `api` and `order` to position it.
 
 ## Local preview
 

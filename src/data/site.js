@@ -7,6 +7,7 @@ export const site = {
 // Sidebar and home page sections, in display order. Each case study in
 // src/pages/work/ picks one of these with its `category` frontmatter.
 export const groups = [
+  { id: 'portal', label: 'Developer Portal Documentation' },
   { id: 'ui', label: 'UI Documentation' },
   { id: 'api', label: 'API Documentation' },
 ];

@@ -17,34 +17,6 @@ const address = (page) => page.frontmatter.liveUrl.replace(/^https?:\/\//, '').r
     <p class="lead">{site.tagline}</p>
   </header>
 
-  <section>
-    <h2><a href="https://developers.cvent.com/docs">Developer Portal Documentation</a></h2>
-    <div class="featured">
-      <Shot
-        file="cvent-http-post.png"
-        alt="Cvent developer portal: HTTP POST overview page"
-        address="developers.cvent.com/docs/http-post/overview"
-        href="https://developers.cvent.com/docs/http-post/overview"
-        crop
-        eager
-      />
-      <Shot
-        file="cvent-compliance-guide.png"
-        alt="Cvent developer portal: REST API compliance guide"
-        address="developers.cvent.com/docs/rest-api/guides/compliance-guide"
-        href="https://developers.cvent.com/docs/rest-api/guides/compliance-guide"
-        crop
-        eager
-      />
-    </div>
-    <p class="prose">
-      Currently, I collaborate with platform stakeholders to update and improve the Cvent developer portal
-      website among other responsibilities. Additionally, I migrated the original site over from a simple
-      WordPress and added structure via the <a href="https://diataxis.fr/">Diátaxis</a> Framework. Previously,
-      various internal developers maintained the site with no consistent style or tone.
-    </p>
-  </section>
-
   {sections.map((section) => (
     <section>
       <h2>{section.label}</h2>
@@ -64,7 +36,4 @@ const address = (page) => page.frontmatter.liveUrl.replace(/^https?:\/\//, '').r
 <style>
   .hero { padding-bottom: 0.5rem; }
   section h2 { padding-top: 2rem; border-top: 1px solid var(--line); margin-bottom: 1.5rem; }
-  section h2 a { color: var(--text); text-decoration-color: var(--line); }
-  section h2 a:hover { color: var(--accent); }
-  .featured { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
 </style>
