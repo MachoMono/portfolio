@@ -10,11 +10,11 @@ liveUrl: https://docs.platform360.io/scp/servers/servers.html
 liveLabel: View the Platform 360 documentation
 gallery:
   - file: plesk-360-1.png
-    alt: Platform 360 server documentation, first section
+    alt: Plesk 360 Servers documentation, page top with the Overview and Add a server sections
   - file: plesk-360-2.png
-    alt: Platform 360 server documentation, second section
+    alt: Plesk 360 Servers documentation, Add a server from Plesk using the CLI
   - file: plesk-360-3.png
-    alt: Platform 360 server documentation, third section
+    alt: Plesk 360 Servers documentation, Disconnect a server and Server details
 ---
 
 I helped with this [documentation](https://docs.platform360.io/scp/servers/servers.html) repository once the primary documentation writer left the company. I created this document at the request of the Plesk team after they added new API functionality to the Platform 360 dashboard.
