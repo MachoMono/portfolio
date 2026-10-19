@@ -1,6 +1,6 @@
 export const site = {
   title: 'Caleb Larry',
-  tagline: 'Senior Technical Writer · Docs Engineering and AI',
+  tagline: 'Self-taught IT and Technical Writing Professional',
   email: 'larrycm@gmail.com',
 };
 
