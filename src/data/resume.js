@@ -2,23 +2,36 @@ export const resume = {
   name: 'Caleb Larry',
   email: 'Larrycm@gmail.com',
   intro:
-    'I am a self-taught former IT professional with 7+ years of experience. In 2019 I transitioned to a career in Technical Writing after 5+ years of working in Cybersecurity. Now, I am looking to take the next step in my Technical Writing career and am eager to learn, lead and explore new technology and processes.',
+    'Senior technical writer with 13+ years of writing for technical audiences, from security operations to developer documentation. I build documentation infrastructure for the AI era: agent-driven authoring and review tools, pipelines that turn support questions into docs, and audits that measure how well content performs for AI search. I treat docs as code and verify AI output against real product behavior.',
   skills: [
-    'Familiar with Python, JavaScript, CSS, HTML5, MySQL, Markdown',
-    'Experienced with Confluence, Jira, WordPress, Adobe XD, MS Word',
-    'Experienced with Windows, macOS, Linux (Ubuntu), and the CLI for each',
-    'Proficient with GIT/GitHub, RooCode, Atom, Confluence, and Agile development',
+    'AI tooling: Claude Code (skills, subagents, multi-agent pipelines), Glean agents, MCP, LLM-based review and evaluation',
+    'Docs as code: Git/GitHub, pull requests, Markdown, Astro, Hugo, Backstage, GitHub Actions',
+    'Programming and scripting: Python, JavaScript, SQL (MySQL), HTML/CSS, Bash',
+    'Frameworks and tools: Diátaxis, Confluence, Jira, Slack, Agile',
+    'Linux, macOS, and Windows, including the command line on each',
   ],
   experience: [
     {
+      role: 'Senior Technical Writer',
+      company: 'Cvent',
+      dates: 'January 2026 – Present',
+      points: [
+        'Built Airo-Grade in Glean, an audit tool that scores Confluence pages on how well they perform with Cvent’s internal AI search, combining deterministic checks with parallel subagent review of prose quality',
+        'Ran department-wide AI-readiness audits; the scored HTML reports became the reference for Cvent’s AI-readiness initiative',
+        'Architected Docwatch with Claude Code, a four-agent pipeline that monitors Slack for undocumented questions and turns them into a reviewable documentation backlog, letting the Backstage support team point engineers to existing docs and draft new entries from resolved cases',
+        'Built techdoc, a Claude Code authoring skill that interviews the writer (at most four questions for a new page, three for an update) and produces Diátaxis-typed docs with complete frontmatter',
+        'Built techdocs-standards, a Claude Code pull request review skill that runs three passes: a hard frontmatter gate plus advisory structure and style checks',
+      ],
+    },
+    {
       role: 'Technical Writer II',
       company: 'Cvent',
-      dates: 'January 2023 – Present',
+      dates: 'April 2023 – January 2026',
       points: [
-        'Upskilled team members on technical workflows for document management',
-        'Collaborated with SMEs to develop new engineering design docs templates',
-        'Developed and implemented new KPI scorecard formats for SMEs',
-        'Developed and maintained internal Developer Portal website',
+        'Migrated the Cvent developer portal off WordPress and restructured it with the Diátaxis framework, giving content from many internal contributors one consistent style and voice',
+        'Maintained the developer portal and trained a successor on the site, Git, and Markdown before handing it off',
+        'Worked with engineers to create engineering design doc templates',
+        'Designed KPI scorecard formats for SMEs and trained team members on document management workflows',
       ],
     },
     {
@@ -26,10 +39,9 @@ export const resume = {
       company: 'cPanel',
       dates: 'January 2020 – 2023',
       points: [
-        'Produce documentation requests using docs-as-code workflow',
-        'Collaborate with SMEs to document UI features from planning to release',
-        'Author web hosting documentation using Confluence, Jira, Hugo, and Atom',
-        'Write and review strings for developers',
+        'Documented UI features and APIs from planning through release in a docs-as-code workflow (Git, Hugo, Markdown)',
+        'Worked with engineers and product managers to document web hosting features, including database tools and the Plesk 360 API',
+        'Wrote and reviewed UI strings for developers',
       ],
     },
     {
