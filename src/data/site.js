@@ -1,8 +1,7 @@
 export const site = {
   title: 'Caleb Larry',
-  // TODO: write the tagline. One short line (under about 10 words) that names your role and what you build.
   // It sets the browser tab text, the search-result description and link previews, so it should match the home page hero.
-  tagline: '[TAGLINE: one short line, role plus what you build]',
+  tagline: 'Ex-network security, technical writer, builder of agent tooling',
   email: 'larrycm@gmail.com',
   linkedin: 'https://www.linkedin.com/in/caleb-larry-a717b1333/',
 };
@@ -11,10 +10,10 @@ export const site = {
 export const home = {
   eyebrow: 'AI agent tooling · Developer experience · Technical writing',
   headline: 'Tools that make technical documentation work for engineers and the AI agents reading it.',
-  sub: 'Senior Technical Writer building agent tooling with Claude Code.',
+  sub: 'Senior technical writer with a network security background, building agent tooling with Claude Code.',
   about: {
     heading: 'Technical writer turned agent builder',
-    text: 'Five years as a security analyst before that. I design toward buy-in: a good system only works if the people using it trust it.',
+    text: 'Seven years in IT, five of them in network security, before I moved into technical writing. I think in systems, and I design workflows around finishing the task, meeting the business need, and keeping the end user in mind.',
   },
 };
 

@@ -43,6 +43,7 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
 
   <section class="docs" aria-labelledby="docs-heading">
     <h2 id="docs-heading" class="label">Documentation</h2>
+    <p class="docs-lead">Before AI, I followed docs-as-code the old-fashioned way, working as an embedded technical writer on software teams. I went through the scrum process alongside the developers and enjoyed it.</p>
     <div class="grid">
       {docs.map((page) => (
         <article class="doc">
@@ -89,6 +90,7 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
   .more:hover { text-decoration: underline; }
 
   .docs { margin-top: 1rem; padding-top: 3rem; border-top: 1px solid var(--line); }
+  .docs-lead { max-width: 44rem; margin: 0 0 2rem; color: var(--muted); }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 2rem 1.5rem; }
   .doc { position: relative; }
   .thumb { display: block; margin-bottom: 0.75rem; }

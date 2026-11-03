@@ -6,7 +6,7 @@ export const resume = {
   //   2. How you got here: security, then technical writing, then agent tooling. Use dates you can stand behind.
   //   3. What kind of role you want next.
   intro:
-    '[INTRO: 2-3 sentences. What you build and who it helps; the path from security to technical writing to agent tooling; the kind of role you want next.]',
+    'I spent seven years in IT, five of them in network security, then moved into technical writing because I love reading, writing, and organizing data. I grew from junior to senior, and in the age of AI into something different again: designing workflows that finish tasks, meet business needs, and keep the end user front of mind. My English degree taught me to teach myself, and the discipline that carried me through my security career and my GCIH certification still drives me.',
   skills: [
     { label: 'AI tooling', items: ['Claude Code', 'Codex', 'GitHub Copilot', 'ChatGPT', 'Herdr', 'AI agents'] },
     { label: 'Documentation', items: ['Markdown', 'Hugo', 'Diátaxis', 'Confluence'] },
