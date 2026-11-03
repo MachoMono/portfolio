@@ -144,8 +144,8 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
   )}
 
   <nav class="pager" aria-label="More work">
-    {prev ? <a href={prev.url}><span class="mono" aria-hidden="true">←</span>{label(prev)}</a> : <span />}
-    {next ? <a class="next" href={next.url}><span class="mono" aria-hidden="true">→</span>{label(next)}</a> : <span />}
+    {prev ? <a href={prev.url}><span class="dir">Previous</span><span class="ttl">{label(prev)}</span></a> : <span />}
+    {next ? <a class="next" href={next.url}><span class="dir">Next</span><span class="ttl">{label(next)}</span></a> : <span />}
   </nav>
 </Base>
 
@@ -232,12 +232,10 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
   .metrics .what { display: block; margin-top: 0.25rem; font-size: 0.95rem; color: var(--muted); }
   .results .next-up { margin: 0; max-width: 38rem; font-size: 1.0625rem; line-height: 1.7; color: var(--muted); }
 
-  .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 4rem; }
-  .pager a {
-    display: flex; flex-direction: column; gap: 0.2rem; padding: 0.9rem 1rem; border: 1px solid var(--line);
-    border-radius: var(--radius); color: var(--text); text-decoration: none; font-weight: 550; line-height: 1.35;
-  }
-  .pager a:hover { border-color: var(--accent); }
+  .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 4rem; padding-top: 1.75rem; border-top: 1px solid var(--line); }
+  .pager a { display: flex; flex-direction: column; gap: 0.25rem; color: var(--text); text-decoration: none; }
   .pager .next { text-align: right; }
-  .pager .mono { color: var(--muted); font-weight: 400; }
+  .pager .dir { font-size: 0.9rem; color: var(--muted); }
+  .pager .ttl { font-size: 1.25rem; line-height: 1.35; letter-spacing: -0.015em; font-weight: 620; }
+  .pager a:hover .ttl { color: var(--accent); }
 </style>
