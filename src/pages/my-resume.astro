@@ -21,7 +21,7 @@ const toc = [
   <dl class="skills">
     {resume.skills.map((group) => (
       <div class="skill-row">
-        <dt>{group.label}</dt>
+        <dt class="mono">{group.label}</dt>
         <dd>{group.items.join(', ')}</dd>
       </div>
     ))}
@@ -62,12 +62,14 @@ const toc = [
 
   /* Same section rhythm and 11rem margin column as the case studies. */
   h2 { padding-top: 1.75rem; border-top: 1px solid var(--line); margin-top: 3rem; }
+  .skills + h2 { border-top: 0; padding-top: 0; }
   .intro-text { font-size: 1.125rem; line-height: 1.75; max-width: 36rem; }
 
   .skills { margin: 0; }
-  .skill-row { padding: 0.6rem 0; }
-  .skill-row dt { font-size: 0.95rem; color: var(--muted); margin: 0; }
-  .skill-row dd { margin: 0; font-size: 1.0625rem; line-height: 1.6; }
+  .skill-row { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 0.25rem 1.5rem; padding: 0.7rem 0; border-top: 1px solid var(--line); }
+  .skill-row:last-child { border-bottom: 1px solid var(--line); }
+  .skill-row dt { font-size: 0.75rem; color: var(--muted); margin: 0.25rem 0 0; }
+  .skill-row dd { margin: 0; }
 
   .row { padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
   .row:last-child { border-bottom: 0; }
@@ -78,9 +80,11 @@ const toc = [
   .row li { font-size: 1.0625rem; line-height: 1.65; margin-bottom: 0.35rem; max-width: 36rem; }
   .row p:last-child { margin: 0; font-size: 1.0625rem; line-height: 1.65; color: var(--muted); }
 
+  @media (max-width: 40rem) {
+    .skill-row { grid-template-columns: 1fr; }
+  }
   @media (min-width: 56rem) {
-    .skill-row, .row:not(.single) { display: grid; grid-template-columns: 11rem minmax(0, 1fr); column-gap: 2.5rem; }
-    .skill-row dt { padding-top: 0.2rem; }
+    .row:not(.single) { display: grid; grid-template-columns: 11rem minmax(0, 1fr); column-gap: 2.5rem; }
     .when { margin: 0.3rem 0 0; }
   }
 </style>
