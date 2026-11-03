@@ -12,8 +12,29 @@ export const home = {
   headline: 'Tools that make technical documentation work for engineers and the AI agents reading it.',
   sub: 'Senior technical writer with a network security background, building agent tooling with Claude Code.',
   about: {
-    heading: 'Technical writer turned agent builder',
-    text: 'Seven years in IT, five of them in network security, before I moved into technical writing. I think in systems, and I design workflows around finishing the task, meeting the business need, and keeping the end user in mind.',
+    heading: 'About',
+    sections: [
+      {
+        title: 'How I got here',
+        text: [
+          "I spent seven years in IT, five of them in network security. I then moved into technical writing because I love reading, writing, and organizing data, and I wanted to use my English degree for more than security incident write-ups.",
+          "In technical writing I grew from junior to senior, and in the age of AI I've grown into something different again.",
+        ],
+      },
+      {
+        title: 'How I work',
+        text: [
+          "I've always thought in systems and modular design. Paired with a security professional's eye for detail and a technical writer's command of prose, that lets me design workflows aimed at completing tasks, meeting business needs, and keeping the end user front of mind.",
+        ],
+      },
+      {
+        title: 'Teaching myself',
+        text: [
+          "My English degree taught me to teach myself, since I routinely competed with and outperformed my CS counterparts. Interviews used to start with \"You have an English degree. How did you get here?\" Now they go \"You have this experience and an English degree? Get in here!\"",
+          "The discipline that carried me through my security career and my GCIH certification still drives me. I don't know where the AI world is headed, but my background shows I can adapt and meet the next challenge.",
+        ],
+      },
+    ],
   },
 };
 

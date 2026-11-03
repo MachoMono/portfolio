@@ -46,19 +46,25 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
   )}
 
   {video ? (
-    <figure class="hero-video">
-      <video controls muted loop playsinline preload="metadata" poster={url(`images/${video.poster}`)} aria-label={video.alt}>
-        <source src={url(`videos/${video.file}`)} type="video/mp4" />
-      </video>
-      {video.caption && <figcaption>{video.caption}</figcaption>}
-    </figure>
-  ) : hero && (
-    <div class="hero-shot">
-      <Shot file={hero.file} alt={hero.alt} caption={hero.caption} address={hero.address} eager />
+    <div class="story-wrap">
+      <figure class="hero-video">
+        <video controls muted loop playsinline preload="metadata" poster={url(`images/${video.poster}`)} aria-label={video.alt}>
+          <source src={url(`videos/${video.file}`)} type="video/mp4" />
+        </video>
+        {video.caption && <figcaption>{video.caption}</figcaption>}
+      </figure>
+      <div class="prose story"><slot /></div>
     </div>
+  ) : (
+    <>
+      {hero && (
+        <div class="hero-shot">
+          <Shot file={hero.file} alt={hero.alt} caption={hero.caption} address={hero.address} eager />
+        </div>
+      )}
+      <div class="prose story"><slot /></div>
+    </>
   )}
-
-  <div class="prose story"><slot /></div>
 
   {flow.length > 0 && (
     <section aria-labelledby="how-it-works">
@@ -144,6 +150,16 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
 
   /* Narrative: short subheads in a left margin column, body in a narrow measure. */
   .story { max-width: none; margin-top: 2.5rem; }
+  .story-wrap .story { margin-top: 0; }
+  @media (min-width: 56rem) {
+    /* Video beside the story: it stays in view while the text scrolls past. */
+    .story-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 3rem; align-items: start; }
+    .story-wrap .hero-video { grid-column: 2; grid-row: 1; position: sticky; top: 5rem; margin: 0; max-width: none; }
+    .story-wrap .story { grid-column: 1; grid-row: 1; display: block; }
+    .story-wrap .story :global(h2) { margin: 2.5rem 0 0.25rem; }
+    .story-wrap .story :global(h2:first-child) { margin-top: 0; }
+    .story-wrap .story :global(h2 + p), .story-wrap .story :global(h2:first-child + p) { margin-top: 0; }
+  }
   .story :global(p) { font-size: 1.125rem; line-height: 1.75; margin: 0 0 1.25rem; max-width: 36rem; }
   .story :global(h2) { font-size: 0.95rem; line-height: 1.97rem; font-weight: 620; letter-spacing: 0; color: var(--text); margin: 0 0 0.5rem; padding: 0; border: 0; }
   @media (min-width: 56rem) {
@@ -161,7 +177,7 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
   .facts dd { margin: 0; font-weight: 600; line-height: 1.35; }
 
   .hero-shot { margin-bottom: 1rem; }
-  .hero-video { margin: 0 0 1rem; max-width: 26rem; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--panel); }
+  .hero-video { margin: 0 0 2rem; max-width: 26rem; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--panel); }
   .hero-video video { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; background: #f6f3ec; }
   .hero-video figcaption { padding: 0.55rem 0.8rem; font-size: 0.82rem; color: var(--muted); border-top: 1px solid var(--line); }
 
