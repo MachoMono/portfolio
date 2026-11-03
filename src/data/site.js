@@ -10,7 +10,6 @@ export const home = {
   eyebrow: 'AI agent tooling · Developer experience · Technical writing',
   headline: 'Tools that make technical documentation work for engineers and the AI agents reading it.',
   sub: 'Senior Technical Writer building agent tooling with Claude Code.',
-  chips: ['4-agent pipeline, 2 human gates', 'Built with Claude Code', 'Nothing ships without a yes'],
   about: {
     heading: 'Technical writer turned agent builder',
     text: 'Five years as a security analyst before that. I design toward buy-in: a good system only works if the people using it trust it.',
