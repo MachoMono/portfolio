@@ -13,11 +13,12 @@ facts:
     value: Claude Code or Codex
   - label: Status
     value: In pilot
-gallery:
-  - file: work-twin-horizon.png
-    alt: Work Twin home screen showing the greeting, the ask line, recent arrivals, and two playbooks with their schedules
-    caption: The home screen shows only what needs a decision, the twin's finished work, and its playbooks.
-    address: 127.0.0.1:8787
+video:
+  badge: Watch how it works
+  file: work-twin-animated.mp4
+  poster: work-twin-poster.png
+  alt: Animated diagram of Work Twin. A person teaches it through an interview, it writes a playbook, a trigger wakes it, it does the work, the person approves, and the action happens once.
+  caption: One playbook run, from interview to approved action.
 flow:
   - title: Teach it
     text: A short interview asks how you do the task. You answer in your own words.
@@ -36,6 +37,10 @@ decisions:
     text: A message, a merge, or a shared document waits for approval before anyone else sees it.
   - title: Your words, your folder
     text: Playbooks use the owner's wording. Every correction becomes a rule, and everything stays in one folder on your machine.
+screens:
+  - file: work-twin-horizon.png
+    alt: Work Twin home screen showing the greeting, the ask line, recent arrivals, and two playbooks with their schedules
+    caption: The home screen shows only what needs a decision, the twin's finished work, and its playbooks.
 playbook:
   title: A playbook, annotated
   intro: This is my first one, kept small on purpose. It sends me one message a day.
