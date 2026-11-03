@@ -80,8 +80,16 @@ results:
   next: Final pilot results will follow after it ends. Version 2 added scheduled triggers and an interface that shows only what needs a decision.
 ---
 
-At my current job, technical writing has been folded into something new. The name is still pending, but the idea is AI-native work and enablement. A senior technology operations manager told me about the concept of one agent doing your work instead of many. I expanded on it: the agent should be personal to you and your work. I can't know everything every person in my department does, so the design had to be open-ended.
+## Where the idea came from
 
-The agent interviews you and saves your answers as playbooks it can recall later. From there, I built in the ability for the twin to act as an expert AI orchestrator, coordinating persistent teams of sub-agents at different models and effort levels to get your work done. The audience is people who need AI features but don't want to dig into managing agents and workflows, so I met them where they're most comfortable.
+At my current job, technical writing has been folded into something new. The name is still pending, but the idea is AI-native work and enablement. A senior technology operations manager told me about the concept of one agent doing your work instead of many.
 
-I packaged the agent and workflow as a plugin with a simple install process through the Claude guide, plus a narrated installation video and a companion HTML guide.
+I expanded on it: the agent should be personal to you and your work. I can't know everything every person in my department does, so the design had to be open-ended.
+
+## What I built
+
+The agent interviews you and saves your answers as playbooks it can recall later. From there, I built in the ability for the twin to act as an expert AI orchestrator, coordinating persistent teams of sub-agents at different models and effort levels to get your work done.
+
+## Who it's for
+
+The audience is people who need AI features but don't want to dig into managing agents and workflows, so I met them where they're most comfortable. I packaged the agent and workflow as a plugin with a simple install process through the Claude guide, plus a narrated installation video and a companion HTML guide.

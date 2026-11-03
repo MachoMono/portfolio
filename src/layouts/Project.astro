@@ -58,7 +58,7 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
     </div>
   )}
 
-  <div class="prose"><slot /></div>
+  <div class="prose story"><slot /></div>
 
   {flow.length > 0 && (
     <section aria-labelledby="how-it-works">
@@ -141,6 +141,19 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
 
 <style>
   .lead { margin-bottom: 1.5rem; }
+
+  /* Narrative: short subheads in a left margin column, body in a narrow measure. */
+  .story { max-width: none; margin-top: 2.5rem; }
+  .story :global(p) { font-size: 1.125rem; line-height: 1.75; margin: 0 0 1.25rem; max-width: 36rem; }
+  .story :global(h2) { font-size: 0.95rem; line-height: 1.97rem; font-weight: 620; letter-spacing: 0; color: var(--text); margin: 0 0 0.5rem; padding: 0; border: 0; }
+  @media (min-width: 56rem) {
+    .story { display: grid; grid-template-columns: 11rem minmax(0, 36rem); column-gap: 2.5rem; }
+    .story :global(h2) { grid-column: 1; margin: 2.75rem 0 0; }
+    .story :global(p) { grid-column: 2; }
+    .story :global(h2:first-child) { margin-top: 0; }
+    .story :global(h2 + p) { margin-top: 2.75rem; }
+    .story :global(h2:first-child + p) { margin-top: 0; }
+  }
 
   .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 0.75rem; margin: 0 0 2rem; }
   .facts div { padding: 0.75rem 0.9rem; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }

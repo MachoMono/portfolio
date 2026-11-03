@@ -52,6 +52,14 @@ results:
   next: The write-up is about the design.
 ---
 
-I built this tool after a few months with our Backstage team. I joined as a forward-deployed technical writer, got to know the team and their processes, and wrote a few documents before identifying the pain points they raised in standups and retros. The team needed to clean up its docsite and keep it fresh, so its engineers could spend less time answering help chats (there were five) and more time engineering. Those chats are where Docwatch gets its questions: it reads the Slack questions people keep asking and turns them into documentation.
+## The problem
 
-I planned a workflow in Claude Code, tested it with the team lead, and presented a prototype to the team. The response was good, so the next step was rebuilding it in the company's CDF framework and hosting it online. I worked with the team's engineers on that move. Since then, the tool has been used to author more than 50 documents. It brought order and a Diátaxis-based structure to their site, along with standards for the team's hand-written documents.
+I built this tool after a few months with our Backstage team. I joined as a forward-deployed technical writer, got to know the team and their processes, and wrote a few documents before identifying the pain points they raised in standups and retros.
+
+The team needed to clean up its docsite and keep it fresh, so its engineers could spend less time answering help chats (there were five) and more time engineering. Those chats are where Docwatch gets its questions: it reads the Slack questions people keep asking and turns them into documentation.
+
+## The build
+
+I planned a workflow in Claude Code, tested it with the team lead, and presented a prototype to the team. The response was good, so the next step was rebuilding it in the company's CDF framework and hosting it online. I worked with the team's engineers on that move.
+
+Since then, the tool has been used to author more than 50 documents. It brought order and a Diátaxis-based structure to their site, along with standards for the team's hand-written documents.

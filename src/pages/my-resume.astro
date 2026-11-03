@@ -15,7 +15,7 @@ const toc = [
   <p class="mono contact"><a href={`mailto:${resume.email}`}>{resume.email}</a></p>
 
   <h2 id="intro">Intro</h2>
-  <p class="prose">{resume.intro}</p>
+  <p class="prose intro-text">{resume.intro}</p>
 
   <h2 id="skills">Skills</h2>
   <dl class="skills">
@@ -56,6 +56,7 @@ const toc = [
 </Base>
 
 <style>
+  .intro-text { font-size: 1.125rem; line-height: 1.75; max-width: 38rem; }
   h1 { margin-bottom: 0.5rem; }
   .contact { font-size: 0.85rem; }
   .contact a { color: var(--muted); }
