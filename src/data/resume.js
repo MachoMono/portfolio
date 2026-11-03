@@ -1,8 +1,12 @@
 export const resume = {
   name: 'Caleb Larry',
   email: 'Larrycm@gmail.com',
+  // TODO: write the intro. Aim for 2-3 sentences covering:
+  //   1. What you build and who it helps (same idea as the home page headline).
+  //   2. How you got here: security, then technical writing, then agent tooling. Use dates you can stand behind.
+  //   3. What kind of role you want next.
   intro:
-    'I am a self-taught former IT professional with 7+ years of experience. In 2019 I transitioned to a career in Technical Writing after 5+ years of working in Cybersecurity. Now, I am looking to take the next step in my Technical Writing career and am eager to learn, lead and explore new technology and processes.',
+    '[INTRO: 2-3 sentences. What you build and who it helps; the path from security to technical writing to agent tooling; the kind of role you want next.]',
   skills: [
     { label: 'AI tooling', items: ['Claude Code', 'Codex', 'GitHub Copilot', 'ChatGPT', 'Herdr', 'AI agents'] },
     { label: 'Documentation', items: ['Markdown', 'Hugo', 'Diátaxis', 'Confluence'] },

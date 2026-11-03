@@ -1,6 +1,8 @@
 export const site = {
   title: 'Caleb Larry',
-  tagline: 'Self-taught IT and Technical Writing Professional',
+  // TODO: write the tagline. One short line (under about 10 words) that names your role and what you build.
+  // It sets the browser tab text, the search-result description and link previews, so it should match the home page hero.
+  tagline: '[TAGLINE: one short line, role plus what you build]',
   email: 'larrycm@gmail.com',
   linkedin: 'https://www.linkedin.com/in/caleb-larry-a717b1333/',
 };
