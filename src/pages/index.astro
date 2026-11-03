@@ -7,7 +7,6 @@ const featured = work.filter((page) => page.frontmatter.category === 'ai');
 const docs = work.filter((page) => page.frontmatter.category !== 'ai');
 const groupLabel = (id) => groups.find((group) => group.id === id)?.label;
 const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
-const chips = (page) => page.frontmatter.chips ?? [];
 ---
 <Base wide>
   <section class="hero">
@@ -36,11 +35,6 @@ const chips = (page) => page.frontmatter.chips ?? [];
         <div class="text">
           <h3>{label(page)}</h3>
           <p>{page.frontmatter.pitch ?? page.frontmatter.summary}</p>
-          {chips(page).length > 0 && (
-            <ul class="tags">
-              {chips(page).map((chip) => <li>{chip}</li>)}
-            </ul>
-          )}
           <a class="more" href={page.url}>Read the case study <span aria-hidden="true">→</span></a>
         </div>
       </article>
@@ -90,9 +84,7 @@ const chips = (page) => page.frontmatter.chips ?? [];
   .badge { position: absolute; right: 1rem; bottom: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.85rem; border-radius: 999px; background: #17181a; color: #fff; font-size: 0.82rem; font-weight: 550; }
   .text { flex: 1 1 20rem; min-width: 0; }
   .text h3 { font-size: 1.9rem; line-height: 1.2; letter-spacing: -0.02em; font-weight: 650; margin-bottom: 0.75rem; }
-  .text p { font-size: 1.05rem; color: var(--muted); }
-  .tags { list-style: none; margin: 0 0 1.5rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .tags li { margin: 0; padding: 0.2rem 0.65rem; border: 1px solid var(--line); border-radius: 6px; font: 0.75rem/1.5 var(--mono); color: var(--muted); }
+  .text p { font-size: 1.05rem; color: var(--muted); margin-bottom: 1.5rem; }
   .more { font-weight: 550; text-decoration: none; }
   .more:hover { text-decoration: underline; }
 

@@ -6,10 +6,6 @@ order: 2
 summary: I designed and built Docwatch, a four-agent pipeline that turns the questions people keep asking in Slack into fact-checked documentation pull requests, with a person approving each step that matters.
 card: card-docwatch.png
 pitch: Slack questions in, verified docs out. Four agents find the gaps, draft the fix, and check every claim before a pull request opens.
-chips:
-  - 4 agents
-  - 2 human gates
-  - Claude Code
 facts:
   - label: Agents
     value: 4, one narrow job each
