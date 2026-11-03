@@ -4,11 +4,11 @@
 // Work.astro.
 import Base from './Base.astro';
 import Shot from '../components/Shot.astro';
-import { groups, getWork } from '../data/site.js';
+import { groups, getWork, url } from '../data/site.js';
 
 const { frontmatter } = Astro.props;
 const {
-  title, summary, category, pitch, facts = [], gallery = [],
+  title, summary, category, pitch, facts = [], gallery = [], video,
   flow = [], decisions = [], playbook, results,
 } = frontmatter;
 
@@ -44,7 +44,14 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
     </dl>
   )}
 
-  {hero && (
+  {video ? (
+    <figure class="hero-video">
+      <video controls muted loop playsinline preload="metadata" poster={url(`images/${video.poster}`)} aria-label={video.alt}>
+        <source src={url(`videos/${video.file}`)} type="video/mp4" />
+      </video>
+      {video.caption && <figcaption>{video.caption}</figcaption>}
+    </figure>
+  ) : hero && (
     <div class="hero-shot">
       <Shot file={hero.file} alt={hero.alt} caption={hero.caption} address={hero.address} eager />
     </div>
@@ -131,6 +138,9 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
   .facts dd { margin: 0; font-weight: 600; line-height: 1.35; }
 
   .hero-shot { margin-bottom: 1rem; }
+  .hero-video { margin: 0 0 1rem; max-width: 26rem; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--panel); }
+  .hero-video video { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; background: #f6f3ec; }
+  .hero-video figcaption { padding: 0.55rem 0.8rem; font-size: 0.82rem; color: var(--muted); border-top: 1px solid var(--line); }
 
   section > h2 { padding-top: 1.75rem; border-top: 1px solid var(--line); margin-top: 3rem; }
   .intro { color: var(--muted); max-width: 40rem; }
