@@ -4,10 +4,10 @@ export const resume = {
   intro:
     'I am a self-taught former IT professional with 7+ years of experience. In 2019 I transitioned to a career in Technical Writing after 5+ years of working in Cybersecurity. Now, I am looking to take the next step in my Technical Writing career and am eager to learn, lead and explore new technology and processes.',
   skills: [
-    { label: 'AI tooling', items: ['Claude Code', 'Codex', 'Copilot', 'ChatGPT', 'herdr', 'AI agents'] },
+    { label: 'AI tooling', items: ['Claude Code', 'Codex', 'GitHub Copilot', 'ChatGPT', 'Herdr', 'AI agents'] },
     { label: 'Documentation', items: ['Markdown', 'Hugo', 'Diátaxis', 'Confluence'] },
     { label: 'Languages', items: ['Python', 'JavaScript', 'HTML', 'CSS', 'MySQL'] },
-    { label: 'Workflow', items: ['Git', 'GitHub', 'Jira'] },
+    { label: 'Workflow', items: ['Git', 'GitHub', 'VS Code', 'Jira'] },
     { label: 'Systems', items: ['Linux', 'Command line'] },
   ],
   experience: [
