@@ -69,11 +69,10 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
   {flow.length > 0 && (
     <section aria-labelledby="how-it-works">
       <h2 id="how-it-works">How it works</h2>
-      <ol class="flow">
+      <ol class="rows">
         {flow.map((step, i) => (
           <li>
-            <span class="num mono" aria-hidden="true">{i + 1}</span>
-            <h3>{step.title}</h3>
+            <h3><span class="num mono" aria-hidden="true">{i + 1}</span>{step.title}</h3>
             <p>{step.text}</p>
           </li>
         ))}
@@ -99,7 +98,12 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
     <section aria-labelledby="interface">
       <h2 id="interface">The interface</h2>
       <div class="screens">
-        {screens.map((shot) => <Shot file={shot.file} alt={shot.alt} caption={shot.caption} />)}
+        {screens.map((shot) => (
+          <div class="screen">
+            {shot.caption && <p class="cap">{shot.caption}</p>}
+            <Shot file={shot.file} alt={shot.alt} />
+          </div>
+        ))}
       </div>
     </section>
   )}
@@ -184,33 +188,28 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
   section > h2 { padding-top: 1.75rem; border-top: 1px solid var(--line); margin-top: 3rem; }
   .intro { color: var(--muted); max-width: 40rem; }
 
-  .flow { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; counter-reset: none; }
-  .flow li {
-    position: relative; margin: 0; padding: 0.9rem 1rem 0.9rem 3.4rem; border: 1px solid var(--line);
-    border-radius: var(--radius); background: var(--bg);
-  }
-  .flow li:not(:last-child)::after {
-    content: ''; position: absolute; left: 1.5rem; top: 100%; width: 1px; height: 0.75rem; background: var(--line);
-  }
-  .flow .num {
-    position: absolute; left: 0.9rem; top: 0.9rem; display: grid; place-items: center; width: 1.5rem; height: 1.5rem;
-    border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-size: 0.8rem; font-weight: 600;
-  }
-  .flow h3 { margin-bottom: 0.15rem; }
-  .flow p { margin: 0; color: var(--muted); font-size: 0.93rem; line-height: 1.55; }
-  @media (min-width: 52rem) {
-    .flow { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.6rem; }
-    .flow li { padding: 2.9rem 0.8rem 0.9rem; }
-    .flow li:not(:last-child)::after { left: 100%; top: 1.65rem; width: 0.6rem; height: 1px; }
-    .flow .num { left: 0.8rem; top: 0.8rem; }
-    .flow p { font-size: 0.85rem; }
+  /* Shared row pattern: heading in a left margin column, text on the right. */
+  .rows { list-style: none; margin: 0; padding: 0; }
+  .rows li { margin: 0; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+  .rows li:last-child, .decisions article:last-child { border-bottom: 0; }
+  .rows h3 { font-size: 1rem; line-height: 1.6; margin: 0 0 0.35rem; display: flex; gap: 0.75rem; }
+  .rows .num { color: var(--accent); font-size: 0.85rem; line-height: 1.9; flex: none; min-width: 0.8rem; }
+  .rows p { margin: 0; font-size: 1.0625rem; line-height: 1.7; max-width: 36rem; }
+  @media (min-width: 56rem) {
+    .rows li { display: grid; grid-template-columns: 11rem minmax(0, 36rem); column-gap: 2.5rem; align-items: baseline; }
+    .rows h3 { margin: 0; }
   }
 
-  .decisions { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 0.9rem; }
-  .decisions article { padding: 1rem 1.1rem; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
-  .decisions p { margin: 0; color: var(--muted); font-size: 0.93rem; line-height: 1.55; }
+  .decisions article { padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+  .decisions h3 { font-size: 1.25rem; line-height: 1.35; letter-spacing: -0.015em; font-weight: 620; margin: 0 0 0.4rem; }
+  .decisions p { margin: 0; max-width: 38rem; font-size: 1.0625rem; line-height: 1.7; color: var(--muted); }
 
-  .screens { display: grid; gap: 1.75rem; }
+  .screens { display: grid; gap: 2.5rem; }
+  .screen .cap { margin: 0 0 0.75rem; font-size: 0.95rem; line-height: 1.6; color: var(--muted); }
+  @media (min-width: 56rem) {
+    .screen { display: grid; grid-template-columns: 11rem minmax(0, 1fr); column-gap: 2.5rem; align-items: start; }
+    .screen .cap { margin: 0; padding-top: 0.5rem; }
+  }
 
   .annotated { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
   .part { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
