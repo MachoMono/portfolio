@@ -6,6 +6,10 @@ order: 2
 summary: I designed and built Docwatch, a four-agent pipeline that turns the questions people keep asking in Slack into fact-checked documentation pull requests, with a person approving each step that matters.
 card: card-docwatch.png
 pitch: Slack questions in, verified docs out. Four agents find the gaps, draft the fix, and check every claim before a pull request opens.
+chips:
+  - 4 agents
+  - 2 human gates
+  - Claude Code
 facts:
   - label: Agents
     value: 4, one narrow job each
@@ -14,6 +18,7 @@ facts:
   - label: Built with
     value: Claude Code
 video:
+  badge: Watch the 15-second walkthrough
   file: docwatch-animated.mp4
   poster: docwatch-poster.png
   alt: Animated diagram of the Docwatch pipeline. A question in Slack moves through detect, a human gate, classify, write, a second human gate, and interrogate, ending in a pull request.
@@ -36,6 +41,13 @@ decisions:
     text: Code and tests count as proof. Slack describes a symptom, never a cause, so a claim about system behavior needs the top tier.
   - title: Narrow jobs, least privilege
     text: Each agent gets only the tools it needs. Only the writer can edit files, and every run is its own process with its own prompt.
+screens:
+  - file: docwatch-board.png
+    alt: The Docwatch gap board with columns from Pending Approval to Finished and a card for each documentation gap
+    caption: The gap board. A person approves, rejects or writes each gap. The topics shown are sample data.
+  - file: docwatch-analytics.png
+    alt: The Docwatch analytics page with four totals and two line charts of gaps detected and docs written per day
+    caption: Analytics for gaps detected and docs written. The numbers shown are sample data.
 results:
   status: In daily use by a developer team.
   metrics: []

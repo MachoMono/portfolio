@@ -1,39 +1,121 @@
 ---
 import Base from '../layouts/Base.astro';
-import Shot from '../components/Shot.astro';
-import { site, groups, getWork } from '../data/site.js';
+import { home, groups, getWork, url } from '../data/site.js';
 
 const work = await getWork();
-const sections = groups.map((group) => ({
-  ...group,
-  items: work.filter((page) => page.frontmatter.category === group.id),
-}));
-const address = (page) => page.frontmatter.liveUrl?.replace(/^https?:\/\//, '').replace(/\/$/, '');
+const featured = work.filter((page) => page.frontmatter.category === 'ai');
+const docs = work.filter((page) => page.frontmatter.category !== 'ai');
+const groupLabel = (id) => groups.find((group) => group.id === id)?.label;
+const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
+const chips = (page) => page.frontmatter.chips ?? [];
 ---
-<Base>
-  <header class="hero">
-    <p class="eyebrow">Portfolio</p>
-    <h1>{site.title}</h1>
-    <p class="lead">{site.tagline}</p>
-  </header>
+<Base wide>
+  <section class="hero">
+    <p class="eyebrow">{home.eyebrow}</p>
+    <h1>{home.headline}</h1>
+    <p class="lead">{home.sub}</p>
+    <p class="cta">
+      <a class="btn" href="#work">View work</a>
+      <a class="btn ghost" href={url('my-resume/')}>Resume</a>
+    </p>
+    <ul class="pills">
+      {home.chips.map((chip) => <li>{chip}</li>)}
+    </ul>
+  </section>
 
-  {sections.map((section) => (
-    <section>
-      <h2>{section.label}</h2>
-      <div class="cards">
-        {section.items.map((page) => (
-          <article class="card">
-            <Shot file={page.frontmatter.card} address={address(page)} href={page.url} crop />
-            <h3><a href={page.url}>{page.frontmatter.cardTitle ?? page.frontmatter.title}</a></h3>
-            <p>{page.frontmatter.summary}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  ))}
+  <section id="work" class="featured" aria-labelledby="ai-heading">
+    <h2 id="ai-heading" class="label">{groupLabel('ai')}</h2>
+    {featured.map((page) => (
+      <article class="row">
+        <a class="media" href={page.url} tabindex="-1" aria-hidden="true">
+          <img src={url(`images/${page.frontmatter.card}`)} alt="" loading="lazy" />
+          {page.frontmatter.video && (
+            <span class="badge">
+              <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z" /></svg>
+              {page.frontmatter.video.badge ?? 'Watch the walkthrough'}
+            </span>
+          )}
+        </a>
+        <div class="text">
+          <h3>{label(page)}</h3>
+          <p>{page.frontmatter.pitch ?? page.frontmatter.summary}</p>
+          {chips(page).length > 0 && (
+            <ul class="tags">
+              {chips(page).map((chip) => <li>{chip}</li>)}
+            </ul>
+          )}
+          <a class="more" href={page.url}>Read the case study <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="docs" aria-labelledby="docs-heading">
+    <h2 id="docs-heading" class="label">Documentation</h2>
+    <div class="grid">
+      {docs.map((page) => (
+        <article class="doc">
+          <a class="thumb" href={page.url} tabindex="-1" aria-hidden="true">
+            <img src={url(`images/${page.frontmatter.card}`)} alt="" loading="lazy" />
+          </a>
+          <h3><a href={page.url}>{label(page)}</a></h3>
+          <p>{groupLabel(page.frontmatter.category)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="about">
+    <img src={url('images/caleb-larry.png')} alt="" width="72" height="72" />
+    <div>
+      <h2>{home.about.heading}</h2>
+      <p>{home.about.text}</p>
+    </div>
+    <a class="btn accent" href={url('my-resume/')}>See my resume</a>
+  </section>
 </Base>
 
 <style>
-  .hero { padding-bottom: 0.5rem; }
-  section h2 { padding-top: 2rem; border-top: 1px solid var(--line); margin-bottom: 1.5rem; }
+  .hero { padding: 3rem 0 4rem; max-width: 56rem; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.25rem; }
+  .hero .lead { font-size: 1.2rem; margin-bottom: 1.75rem; }
+  .cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0 0 2rem; }
+  .btn { padding: 0.7rem 1.25rem; font-size: 0.95rem; }
+  .btn.ghost { background: transparent; color: var(--text); }
+  .btn.accent { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .pills { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .pills li { margin: 0; padding: 0.3rem 0.8rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 0.88rem; font-weight: 500; }
+
+  .label { font: 500 0.78rem/1.3 var(--mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin: 0 0 1.75rem; }
+  .featured { padding-top: 3rem; border-top: 1px solid var(--line); }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 2rem 2.5rem; margin-bottom: 4rem; }
+  .row:nth-of-type(even) { flex-direction: row-reverse; }
+  .media { position: relative; flex: 1 1 28rem; min-width: 0; display: block; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--panel); }
+  .media img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+  .badge { position: absolute; right: 1rem; bottom: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.85rem; border-radius: 999px; background: #17181a; color: #fff; font-size: 0.82rem; font-weight: 550; }
+  .text { flex: 1 1 20rem; min-width: 0; }
+  .text h3 { font-size: 1.9rem; line-height: 1.2; letter-spacing: -0.02em; font-weight: 650; margin-bottom: 0.75rem; }
+  .text p { font-size: 1.05rem; color: var(--muted); }
+  .tags { list-style: none; margin: 0 0 1.5rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tags li { margin: 0; padding: 0.2rem 0.65rem; border: 1px solid var(--line); border-radius: 6px; font: 0.75rem/1.5 var(--mono); color: var(--muted); }
+  .more { font-weight: 550; text-decoration: none; }
+  .more:hover { text-decoration: underline; }
+
+  .docs { margin-top: 1rem; padding-top: 3rem; border-top: 1px solid var(--line); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 2rem 1.5rem; }
+  .doc { position: relative; }
+  .thumb { display: block; margin-bottom: 0.75rem; }
+  .thumb img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; border: 1px solid var(--line); border-radius: 8px; transition: border-color 0.15s; }
+  .doc:hover .thumb img { border-color: var(--muted); }
+  .doc h3 { margin: 0; }
+  .doc h3 a { color: var(--text); text-decoration: none; }
+  .doc h3 a::after { content: ''; position: absolute; inset: 0; }
+  .doc:hover h3 a { color: var(--accent); }
+  .doc p { margin: 0; font-size: 0.88rem; color: var(--muted); }
+
+  .about { margin-top: 4.5rem; padding: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+  .about img { width: 4.5rem; height: 4.5rem; border-radius: 50%; object-fit: cover; }
+  .about div { flex: 1 1 20rem; min-width: 0; }
+  .about h2 { margin: 0 0 0.25rem; font-size: 1.25rem; }
+  .about p { margin: 0; color: var(--muted); }
 </style>

@@ -6,6 +6,10 @@ order: 1
 summary: I designed and built Work Twin, an AI agent that learns how a person does their job through a short interview, then does that work with them.
 card: card-work-twin.png
 pitch: An AI colleague that learns how you do your job, then does that work with you. Nothing leaves your desk without your yes.
+chips:
+  - ~10 days to build
+  - Claude Code or Codex
+  - In pilot
 facts:
   - label: Built in
     value: About 10 days

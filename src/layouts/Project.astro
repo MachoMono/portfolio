@@ -9,7 +9,7 @@ import { groups, getWork, url } from '../data/site.js';
 const { frontmatter } = Astro.props;
 const {
   title, summary, category, pitch, facts = [], gallery = [], video,
-  flow = [], decisions = [], playbook, results,
+  flow = [], decisions = [], screens = [], playbook, results,
 } = frontmatter;
 
 const section = groups.find((group) => group.id === category)?.label;
@@ -18,6 +18,7 @@ const [hero] = gallery;
 const toc = [
   flow.length && { id: 'how-it-works', label: 'How it works' },
   decisions.length && { id: 'design-decisions', label: 'Design decisions' },
+  screens.length && { id: 'interface', label: 'The interface' },
   playbook && { id: 'playbook', label: 'A playbook' },
   results && { id: 'results', label: 'Results and next' },
 ].filter(Boolean);
@@ -84,6 +85,15 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
             <p>{decision.text}</p>
           </article>
         ))}
+      </div>
+    </section>
+  )}
+
+  {screens.length > 0 && (
+    <section aria-labelledby="interface">
+      <h2 id="interface">The interface</h2>
+      <div class="screens">
+        {screens.map((shot) => <Shot file={shot.file} alt={shot.alt} caption={shot.caption} />)}
       </div>
     </section>
   )}
@@ -170,6 +180,8 @@ const label = (page) => page.frontmatter.cardTitle ?? page.frontmatter.title;
   .decisions { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 0.9rem; }
   .decisions article { padding: 1rem 1.1rem; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
   .decisions p { margin: 0; color: var(--muted); font-size: 0.93rem; line-height: 1.55; }
+
+  .screens { display: grid; gap: 1.75rem; }
 
   .annotated { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
   .part { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
