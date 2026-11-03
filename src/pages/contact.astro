@@ -4,11 +4,36 @@ import { site } from '../data/site.js';
 ---
 <Base title="Contact">
   <h1>Contact</h1>
-  <div class="prose">
-    <p>
-      Thank you for viewing my portfolio. If you have any questions, please contact me at{' '}
-      <a href={`mailto:${site.email}`}><strong>{site.email}</strong></a>.
-    </p>
-    <p>Take care!</p>
-  </div>
+  <p class="lead-text">Thank you for viewing my portfolio. If you have any questions, I'd be glad to hear from you.</p>
+
+  <dl class="ways">
+    <div class="way">
+      <dt>Email</dt>
+      <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+    </div>
+    {site.linkedin && (
+      <div class="way">
+        <dt>LinkedIn</dt>
+        <dd><a href={site.linkedin} target="_blank" rel="noreferrer noopener">Caleb Larry</a></dd>
+      </div>
+    )}
+  </dl>
+
+  <p class="sign">Take care!</p>
 </Base>
+
+<style>
+  .lead-text { font-size: 1.125rem; line-height: 1.75; max-width: 36rem; margin: 1.5rem 0 2.5rem; }
+
+  /* Same 11rem margin column and hairline rows as the case studies. */
+  .ways { margin: 0; border-top: 1px solid var(--line); }
+  .way { padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+  .way dt { font-size: 0.95rem; line-height: 1.6; color: var(--muted); margin: 0 0 0.25rem; }
+  .way dd { margin: 0; font-size: 1.25rem; line-height: 1.35; letter-spacing: -0.015em; font-weight: 620; overflow-wrap: anywhere; }
+  @media (min-width: 56rem) {
+    .way { display: grid; grid-template-columns: 11rem minmax(0, 1fr); column-gap: 2.5rem; align-items: baseline; }
+    .way dt { margin: 0; }
+  }
+
+  .sign { margin-top: 2rem; font-size: 1.0625rem; color: var(--muted); }
+</style>
