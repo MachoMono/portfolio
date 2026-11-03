@@ -14,7 +14,7 @@ facts:
   - label: Built with
     value: Claude Code
 video:
-  badge: Watch the 15-second walkthrough
+  badge: Watch how it works
   file: docwatch-animated.mp4
   poster: docwatch-poster.png
   alt: Animated diagram of the Docwatch pipeline. A question in Slack moves through detect, a human gate, classify, write, a second human gate, and interrogate, ending in a pull request.
