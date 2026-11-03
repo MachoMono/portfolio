@@ -2,7 +2,6 @@ export const site = {
   title: 'Caleb Larry',
   tagline: 'Self-taught IT and Technical Writing Professional',
   email: 'larrycm@gmail.com',
-  github: 'https://github.com/MachoMono',
 };
 
 // Home page copy. Placeholder text: rewrite freely.
