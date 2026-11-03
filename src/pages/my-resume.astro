@@ -18,9 +18,14 @@ const toc = [
   <p class="prose">{resume.intro}</p>
 
   <h2 id="skills">Skills</h2>
-  <ul class="prose">
-    {resume.skills.map((skill) => <li>{skill}</li>)}
-  </ul>
+  <dl class="skills">
+    {resume.skills.map((group) => (
+      <div class="skill-row">
+        <dt class="mono">{group.label}</dt>
+        <dd>{group.items.join(', ')}</dd>
+      </div>
+    ))}
+  </dl>
 
   <h2 id="experience">Work Experience</h2>
   <div class="timeline">
@@ -54,6 +59,11 @@ const toc = [
   h1 { margin-bottom: 0.5rem; }
   .contact { font-size: 0.85rem; }
   .contact a { color: var(--muted); }
+  .skills { margin: 0; }
+  .skill-row { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 0.25rem 1.5rem; padding: 0.7rem 0; border-top: 1px solid var(--line); }
+  .skill-row:last-child { border-bottom: 1px solid var(--line); }
+  .skill-row dt { font-size: 0.75rem; color: var(--muted); margin: 0.25rem 0 0; }
+  .skill-row dd { margin: 0; }
   .row { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 0.25rem 1.5rem; padding: 1.25rem 0; border-top: 1px solid var(--line); }
   .row.single { grid-template-columns: 1fr; }
   .when { font-size: 0.75rem; color: var(--muted); margin: 0.2rem 0 0; }
@@ -61,6 +71,6 @@ const toc = [
   .row ul, .row p:last-child { margin-bottom: 0; color: var(--muted); font-size: 0.95rem; }
   .row h3 { margin-bottom: 0.4rem; }
   @media (max-width: 40rem) {
-    .row { grid-template-columns: 1fr; }
+    .row, .skill-row { grid-template-columns: 1fr; }
   }
 </style>

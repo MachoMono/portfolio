@@ -4,10 +4,11 @@ export const resume = {
   intro:
     'I am a self-taught former IT professional with 7+ years of experience. In 2019 I transitioned to a career in Technical Writing after 5+ years of working in Cybersecurity. Now, I am looking to take the next step in my Technical Writing career and am eager to learn, lead and explore new technology and processes.',
   skills: [
-    'Familiar with Python, JavaScript, CSS, HTML5, MySQL, Markdown',
-    'Experienced with Confluence, Jira, WordPress, Adobe XD, MS Word',
-    'Experienced with Windows, macOS, Linux (Ubuntu), and the CLI for each',
-    'Proficient with GIT/GitHub, RooCode, Atom, Confluence, and Agile development',
+    { label: 'AI tooling', items: ['Claude Code', 'Codex', 'Copilot', 'ChatGPT', 'herdr', 'AI agents'] },
+    { label: 'Documentation', items: ['Markdown', 'Hugo', 'Diátaxis', 'Confluence'] },
+    { label: 'Languages', items: ['Python', 'JavaScript', 'HTML', 'CSS', 'MySQL'] },
+    { label: 'Workflow', items: ['Git', 'GitHub', 'Jira'] },
+    { label: 'Systems', items: ['Linux', 'Command line'] },
   ],
   experience: [
     {
