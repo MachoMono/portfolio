@@ -2,6 +2,7 @@ export const site = {
   title: 'Caleb Larry',
   tagline: 'Self-taught IT and Technical Writing Professional',
   email: 'larrycm@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/caleb-larry-a717b1333/',
 };
 
 // Home page copy. Placeholder text: rewrite freely.
