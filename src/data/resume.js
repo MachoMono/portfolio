@@ -1,6 +1,6 @@
 export const resume = {
   name: 'Caleb Larry',
-  email: 'Larrycm@gmail.com',
+  email: 'larrycm@gmail.com',
   // TODO: write the intro. Aim for 2-3 sentences covering:
   //   1. What you build and who it helps (same idea as the home page headline).
   //   2. How you got here: security, then technical writing, then agent tooling. Use dates you can stand behind.

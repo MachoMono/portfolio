@@ -21,7 +21,7 @@ const toc = [
   <dl class="skills">
     {resume.skills.map((group) => (
       <div class="skill-row">
-        <dt class="mono">{group.label}</dt>
+        <dt>{group.label}</dt>
         <dd>{group.items.join(', ')}</dd>
       </div>
     ))}
@@ -31,7 +31,7 @@ const toc = [
   <div class="timeline">
     {resume.experience.map((job) => (
       <section class="row">
-        <p class="mono when">{job.dates}</p>
+        <p class="when">{job.dates}</p>
         <div>
           <h3>{job.role} <span class="at">({job.company})</span></h3>
           <ul>
@@ -56,22 +56,31 @@ const toc = [
 </Base>
 
 <style>
-  .intro-text { font-size: 1.125rem; line-height: 1.75; max-width: 38rem; }
   h1 { margin-bottom: 0.5rem; }
   .contact { font-size: 0.85rem; }
   .contact a { color: var(--muted); }
+
+  /* Same section rhythm and 11rem margin column as the case studies. */
+  h2 { padding-top: 1.75rem; border-top: 1px solid var(--line); margin-top: 3rem; }
+  .intro-text { font-size: 1.125rem; line-height: 1.75; max-width: 36rem; }
+
   .skills { margin: 0; }
-  .skill-row { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 0.25rem 1.5rem; padding: 0.7rem 0; border-top: 1px solid var(--line); }
-  .skill-row:last-child { border-bottom: 1px solid var(--line); }
-  .skill-row dt { font-size: 0.75rem; color: var(--muted); margin: 0.25rem 0 0; }
-  .skill-row dd { margin: 0; }
-  .row { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 0.25rem 1.5rem; padding: 1.25rem 0; border-top: 1px solid var(--line); }
-  .row.single { grid-template-columns: 1fr; }
-  .when { font-size: 0.75rem; color: var(--muted); margin: 0.2rem 0 0; }
+  .skill-row { padding: 0.6rem 0; }
+  .skill-row dt { font-size: 0.95rem; color: var(--muted); margin: 0; }
+  .skill-row dd { margin: 0; font-size: 1.0625rem; line-height: 1.6; }
+
+  .row { padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+  .row:last-child { border-bottom: 0; }
+  .when { font-size: 0.95rem; line-height: 1.6; color: var(--muted); margin: 0 0 0.35rem; }
+  .row h3 { font-size: 1.25rem; line-height: 1.35; letter-spacing: -0.015em; font-weight: 620; margin: 0 0 0.6rem; }
   .at { font-weight: 400; color: var(--muted); }
-  .row ul, .row p:last-child { margin-bottom: 0; color: var(--muted); font-size: 0.95rem; }
-  .row h3 { margin-bottom: 0.4rem; }
-  @media (max-width: 40rem) {
-    .row, .skill-row { grid-template-columns: 1fr; }
+  .row ul { margin: 0; padding-left: 1.1rem; }
+  .row li { font-size: 1.0625rem; line-height: 1.65; margin-bottom: 0.35rem; max-width: 36rem; }
+  .row p:last-child { margin: 0; font-size: 1.0625rem; line-height: 1.65; color: var(--muted); }
+
+  @media (min-width: 56rem) {
+    .skill-row, .row:not(.single) { display: grid; grid-template-columns: 11rem minmax(0, 1fr); column-gap: 2.5rem; }
+    .skill-row dt { padding-top: 0.2rem; }
+    .when { margin: 0.3rem 0 0; }
   }
 </style>
